@@ -11,7 +11,8 @@ def scrap():
 	print('1.Website url')
 	print('2.Email')
 	print('3.Mobile number')
-	print('4.Exit')
+	print('4.Meta-data')
+	print('5.Exit')
 	print('-----------------------------------------')
 
 	opt=int(input('What do you want to extract?:'))
@@ -32,6 +33,10 @@ def scrap():
 			print (item)
 		scrap()
 	elif opt==4:
+		re_list=re.findall('<meta name="([^"]+)" content="([^"]+)"',page)
+		for item in re_list:
+			print(item[0]," : ",item[1])
+	elif opt==5:
 		return
 	else:
 		print('Wrong option')
